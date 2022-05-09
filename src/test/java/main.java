@@ -9,9 +9,7 @@ import org.openqa.selenium.JavascriptExecutor;
 
 public class main {
     WebDriver driver =  null;
-
     SoftAssert soft = new SoftAssert();
-
     @BeforeTest
     public void openBrowser() throws InterruptedException {
         String chromeDriverPath= System.getProperty("user.dir")+"\\src\\main\\resources\\browsers\\chromedriver.exe";
