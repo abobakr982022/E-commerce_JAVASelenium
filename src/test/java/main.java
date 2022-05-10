@@ -25,7 +25,7 @@ public class main {
         //test script
         Thread.sleep(3000);
     }
-    String email="abobakrahmed982022@gmail.com";
+    String email="aabobakrahmeeed9820223222@gmail.com";
     String password = "123456";
 
     @Test(priority = 1) //Registeration
@@ -243,25 +243,28 @@ public class main {
         driver.findElement(By.cssSelector("select[data-trigger=\"country-select\"]")).sendKeys(Keys.ENTER);
 //        driver.findElement(By.cssSelector("option[value=\"123\"]")).click();
 //
-//        driver.findElement(By.name("BillingNewAddress.City")).sendKeys("Giza");
-//        driver.findElement(By.name("BillingNewAddress.Address1")).sendKeys("El-Haram");
-//        driver.findElement(By.name("BillingNewAddress.Address2")).sendKeys("El-Haram2");
-//        driver.findElement(By.name("BillingNewAddress.ZipPostalCode")).sendKeys("25656");
-//        driver.findElement(By.name("BillingNewAddress.PhoneNumber")).sendKeys("01222565233");
-//        driver.findElement(By.name("BillingNewAddress.FaxNumber")).sendKeys("0235647896");
-//        driver.findElement(By.name("save")).click();
-//        driver.findElement(By.cssSelector("button[type=\"button\"]")).click();
-//        driver.findElement(By.name("CardholderName")).sendKeys("bakr");
-//        driver.findElement(By.name("CardNumber")).sendKeys("125125125125");
-//        driver.findElement(By.name("ExpireMonth")).click();
-//        driver.findElement(By.name("option[value=\"5\"]")).click();
-//        driver.findElement(By.name("CardCode")).sendKeys("122");
-//        driver.findElement(By.className("payment-info-next-step-button")).click();
-//        driver.findElement(By.className("confirm-order-next-step-button")).click();
-//        String Expectedvalue="Your order has been successfully processed!";
-//        String ActualValue = driver.findElement(By.tagName("strong")).getText();
-//        soft.assertTrue(ActualValue.contains(Expectedvalue),"Your order has been successfully processed!");
-//        driver.findElement(By.className("order-completed-continue-button")).click();
+        driver.findElement(By.name("BillingNewAddress.City")).sendKeys("Giza");
+        driver.findElement(By.name("BillingNewAddress.Address1")).sendKeys("El-Haram");
+        driver.findElement(By.name("BillingNewAddress.Address2")).sendKeys("El-Haram2");
+        driver.findElement(By.name("BillingNewAddress.ZipPostalCode")).sendKeys("25656");
+        driver.findElement(By.name("BillingNewAddress.PhoneNumber")).sendKeys("01222565233");
+        driver.findElement(By.name("BillingNewAddress.FaxNumber")).sendKeys("0235647896");
+        driver.findElement(By.name("save")).click();
+        System.out.println(driver.getCurrentUrl());
+        driver.navigate().to("https://demo.nopcommerce.com/onepagecheckout#opc-shipping_method");
+        System.out.println(driver.getCurrentUrl());
+        driver.findElement(By.className("shipping-method-next-step-button")).click();
+        driver.findElement(By.name("CardholderName")).sendKeys("bakr");
+        driver.findElement(By.name("CardNumber")).sendKeys("125125125125");
+        driver.findElement(By.name("ExpireMonth")).click();
+        driver.findElement(By.name("option[value=\"5\"]")).click();
+        driver.findElement(By.name("CardCode")).sendKeys("122");
+        driver.findElement(By.className("payment-info-next-step-button")).click();
+        driver.findElement(By.className("confirm-order-next-step-button")).click();
+        String Expectedvalue="Your order has been successfully processed!";
+        String ActualValue = driver.findElement(By.tagName("strong")).getText();
+        soft.assertTrue(ActualValue.contains(Expectedvalue),"Your order has been successfully processed!");
+        driver.findElement(By.className("order-completed-continue-button")).click();
 
 
 
@@ -274,6 +277,7 @@ public class main {
 
 
     }
+
     @AfterTest
     public void closeBrowser(){
         driver.quit();
