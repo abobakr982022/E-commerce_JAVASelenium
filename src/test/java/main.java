@@ -25,7 +25,7 @@ public class main {
         //test script
         Thread.sleep(3000);
     }
-    String email="aabobakrahmeeed9820223222@gmail.com";
+    String email="abobavkrahmed9820s233c5dcd2@gmail.com";
     String password = "123456";
 
     @Test(priority = 1) //Registeration
@@ -49,7 +49,6 @@ public class main {
         driver.findElement(By.name("Password")).sendKeys(password);
         driver.findElement(By.name("ConfirmPassword")).sendKeys(password);
         driver.findElement(By.name("register-button")).click();
-
         //Assertion
         String ExpectedValue = "Your registration completed";
         String ActualValue=  driver.findElement(By.className("result")).getText();
@@ -71,13 +70,11 @@ public class main {
         driver.findElement(By.name("Password")).sendKeys(password);
         driver.findElement(By.className("login-button")).click();
         Thread.sleep(3000);
-
     }
     @Test(priority = 4)
     public void logoutForReset(){
         driver.findElement(By.cssSelector("a[href=\"/logout\"]")).click();
     }
-
     @Test(priority = 5)
     public void resetPassword() throws InterruptedException {
         driver.findElement(By.cssSelector("a[href=\"/login?returnUrl=%2F\"]")).click();
@@ -99,9 +96,7 @@ public class main {
         driver.findElement(By.name("Password")).sendKeys(password);
         driver.findElement(By.className("login-button")).click();
         Thread.sleep(3000);
-
     }
-
     @Test(priority = 6)
     public void searchProducts() throws InterruptedException {
         driver.findElement(By.cssSelector("a[href=\"/\"]")).click();
@@ -128,7 +123,6 @@ public class main {
         JavascriptExecutor jss =(JavascriptExecutor) driver;
         jss.executeScript("arguments[0].scrollIntoView();", Element2);
         Thread.sleep(1500);
-
     }
     @Test(priority = 8)
     public void chooseCatagory() throws InterruptedException {
@@ -144,7 +138,6 @@ public class main {
         Thread.sleep(1000);
         Element2.click();
         System.out.println(driver.getCurrentUrl());
-       // Thread.sleep(6000);
         driver.findElement(By.cssSelector("img[src=\"https://demo.nopcommerce.com/images/thumbs/0000006_camera-photo_450.jpeg\"]")).click();
         Thread.sleep(1000);
         driver.findElement(By.cssSelector("a[title=\"List\"]")).click();
@@ -152,9 +145,6 @@ public class main {
         JavascriptExecutor jsss =(JavascriptExecutor) driver;
         jsss.executeScript("arguments[0].scrollIntoView();", Element3);
     }
-
-
-
     @Test(priority = 9)
     public void filterColor() throws InterruptedException {
         driver.navigate().to(" https://demo.nopcommerce.com/camera-photo");
@@ -195,7 +185,6 @@ public class main {
         String ActualResult = driver.findElement(By.className("content")).getText() ;
         soft.assertTrue(ActualResult.contains(ExpectedResult),"The product has been added to your shopping cart");
     }
-
     @Test(priority = 12)
     public void addtoWishlist() throws InterruptedException {
         driver.navigate().to("https://demo.nopcommerce.com/game");
@@ -231,7 +220,6 @@ public class main {
         jss.executeScript("arguments[0].scrollIntoView();", Element);
         Thread.sleep(2000);
     }
-
     @Test(priority = 14)
     public void createsuccessfulOrder() throws InterruptedException {
         driver.navigate().to("https://demo.nopcommerce.com/cart");
@@ -241,8 +229,6 @@ public class main {
         driver.findElement(By.cssSelector("select[data-trigger=\"country-select\"]")).click();
         driver.findElement(By.cssSelector("select[data-trigger=\"country-select\"]")).sendKeys("g");
         driver.findElement(By.cssSelector("select[data-trigger=\"country-select\"]")).sendKeys(Keys.ENTER);
-//        driver.findElement(By.cssSelector("option[value=\"123\"]")).click();
-//
         driver.findElement(By.name("BillingNewAddress.City")).sendKeys("Giza");
         driver.findElement(By.name("BillingNewAddress.Address1")).sendKeys("El-Haram");
         driver.findElement(By.name("BillingNewAddress.Address2")).sendKeys("El-Haram2");
@@ -253,33 +239,29 @@ public class main {
         System.out.println(driver.getCurrentUrl());
         driver.navigate().to("https://demo.nopcommerce.com/onepagecheckout#opc-shipping_method");
         System.out.println(driver.getCurrentUrl());
-        driver.findElement(By.className("shipping-method-next-step-button")).click();
-        driver.findElement(By.name("CardholderName")).sendKeys("bakr");
+        Thread.sleep(3000);
+        driver.findElement(By.cssSelector("div[id=\"shipping-method-buttons-container\"] button[type=\"button\"]")).click();
+        Thread.sleep(1000);
+        driver.findElement(By.id("CardholderName")).sendKeys("bakr");
         driver.findElement(By.name("CardNumber")).sendKeys("125125125125");
         driver.findElement(By.name("ExpireMonth")).click();
-        driver.findElement(By.name("option[value=\"5\"]")).click();
+        Thread.sleep(1000);
+        driver.findElement(By.cssSelector("select[data-val-required=\"Expire month is required\"] option[value=\"5\"]")).click();
         driver.findElement(By.name("CardCode")).sendKeys("122");
         driver.findElement(By.className("payment-info-next-step-button")).click();
-        driver.findElement(By.className("confirm-order-next-step-button")).click();
+        Thread.sleep(1000);
+        driver.findElement(By.cssSelector("div[id=\"confirm-order-buttons-container\"] button[type=\"button\"]")).click();
         String Expectedvalue="Your order has been successfully processed!";
         String ActualValue = driver.findElement(By.tagName("strong")).getText();
         soft.assertTrue(ActualValue.contains(Expectedvalue),"Your order has been successfully processed!");
-        driver.findElement(By.className("order-completed-continue-button")).click();
-
-
-
-
-
-
-
-
-        Thread.sleep(5000);
-
+        Thread.sleep(1000);
+        driver.findElement(By.cssSelector("div[class=\"buttons\"] button[type=\"button\"]")).click();
+        Thread.sleep(1000);
 
     }
-
     @AfterTest
-    public void closeBrowser(){
+    public void closeBrowser() throws InterruptedException {
+        Thread.sleep(3000);
         driver.quit();
     }
 
