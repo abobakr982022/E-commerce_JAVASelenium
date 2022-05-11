@@ -8,6 +8,12 @@ import org.openqa.selenium.JavascriptExecutor;
 
 
 public class main {
+    Registeration registeration = new Registeration();
+    logout logout =new logout();
+    ValidLogin validLogin =new ValidLogin();
+    ResetPassword resetPassword=new ResetPassword();
+    ValidLoginAfterReset validLoginAfterReset=new ValidLoginAfterReset();
+    searchProducts searchProducts =new searchProducts();
     WebDriver driver =  null;
     SoftAssert soft = new SoftAssert();
     @BeforeTest
@@ -25,63 +31,63 @@ public class main {
         //test script
         Thread.sleep(3000);
     }
-    String email="abobavkrahmed9820s233c5dcd2@gmail.com";
+    String email="abobavkrahmed9d8cs2d0sd233c5dcd2@gmail.com";
     String password = "123456";
 
     @Test(priority = 1) //Registeration
     public void validRegisteration () throws InterruptedException {
-        driver.findElement(By.cssSelector("a[href=\"/register?returnUrl=%2F\"]")).click();
+        registeration.linkRegisterationElement(driver).click();
         Thread.sleep(1000);
-        driver.findElement(By.cssSelector("input[value=\"M\"]")).click();
+       registeration.gender(driver).click();
         Thread.sleep(1000);
-        driver.findElement(By.name("FirstName")).sendKeys("Bakr");
+        registeration.userElement(driver).sendKeys("Bakr");
         Thread.sleep(1000);
-        driver.findElement(By.name("LastName")).sendKeys("Ahmed");
-        driver.findElement(By.cssSelector("select[name=\"DateOfBirthDay\"] option[value=\"8\"]")).click();
-        driver.findElement(By.cssSelector("select[name=\"DateOfBirthMonth\"] option[value=\"5\"]")).click();
-        driver.findElement(By.cssSelector("select[name=\"DateOfBirthYear\"] option[value=\"1998\"]")).click();
-        driver.findElement(By.name("Email")).sendKeys(email);
-        driver.findElement(By.name("Company")).sendKeys("Bakr-Group");
+        registeration.LastnameElement(driver).sendKeys("Ahmed");
+        registeration.dayElement(driver).click();
+        registeration.monthElement(driver).click();
+        registeration.yearElement(driver).click();
+        registeration.EmailElement(driver).sendKeys(email);
+        registeration.companyElement(driver).sendKeys("Bakr-Group");
         for (int i=0; i<=3 ; i++){
-            driver.findElement(By.name("Newsletter")).click();
+            registeration.NewsletterElement(driver).click();
             Thread.sleep(500);
         }
-        driver.findElement(By.name("Password")).sendKeys(password);
-        driver.findElement(By.name("ConfirmPassword")).sendKeys(password);
-        driver.findElement(By.name("register-button")).click();
+        registeration.PasswordElement(driver).sendKeys(password);
+        registeration.ConfirmPasswordElement(driver).sendKeys(password);
+        registeration.registerbuttonElement(driver).click();
         //Assertion
         String ExpectedValue = "Your registration completed";
         String ActualValue=  driver.findElement(By.className("result")).getText();
         System.out.println(ActualValue);
         soft.assertTrue(ExpectedValue.contains(ActualValue),"Assertion for completing registeration");
-        driver.findElement(By.className("register-continue-button")).click();
+        registeration.registercontinuebuttonElement(driver).click();
         Thread.sleep(3000);
     }
     @Test(priority = 2)
     public void logout(){
-        driver.findElement(By.cssSelector("a[href=\"/logout\"]")).click();
+        logout.logout(driver).click();
     }
 
     @Test(priority = 3)
     public void ValidLogin() throws InterruptedException {
         driver.navigate().to("https://demo.nopcommerce.com/");
-        driver.findElement(By.cssSelector("a[href=\"/login?returnUrl=%2F\"]")).click();
-        driver.findElement(By.name("Email")).sendKeys(email);
-        driver.findElement(By.name("Password")).sendKeys(password);
-        driver.findElement(By.className("login-button")).click();
+        validLogin.linkLogin(driver).click();
+        validLogin.Email(driver).sendKeys(email);
+        validLogin.password(driver).sendKeys(password);
+        validLogin.loginbutton(driver).click();
         Thread.sleep(3000);
     }
     @Test(priority = 4)
     public void logoutForReset(){
-        driver.findElement(By.cssSelector("a[href=\"/logout\"]")).click();
+        logout.logout(driver).click();
     }
     @Test(priority = 5)
     public void resetPassword() throws InterruptedException {
-        driver.findElement(By.cssSelector("a[href=\"/login?returnUrl=%2F\"]")).click();
-        driver.findElement(By.name("Email")).sendKeys(email);
-        driver.findElement(By.cssSelector("a[href=\"/passwordrecovery\"]")).click();
-        driver.findElement(By.name("Email")).sendKeys(email);
-        driver.findElement(By.name("send-email")).click();
+       resetPassword.linkElement(driver).click();
+        resetPassword.EmailElement(driver).sendKeys(email);
+        resetPassword.passwordrecoverylinkElement(driver).click();
+        resetPassword.EmailconfirmElement(driver).sendKeys(email);
+        resetPassword.sendmailElement(driver).click();
         //Assertion for text 'Email with instructions has been sent to you'.
         String ExpectedResult="Email with instructions has been sent to you.";
         String ActualResult = driver.findElement(By.className("content")).getText() ;
@@ -91,19 +97,19 @@ public class main {
     @Test(priority = 6)
     public void ValidLoginAfterReset() throws InterruptedException {
         driver.navigate().to("https://demo.nopcommerce.com/");
-        driver.findElement(By.cssSelector("a[href=\"/login?returnUrl=%2F\"]")).click();
-        driver.findElement(By.name("Email")).sendKeys(email);
-        driver.findElement(By.name("Password")).sendKeys(password);
-        driver.findElement(By.className("login-button")).click();
+        validLoginAfterReset.loginlinkElement(driver).click();
+        validLoginAfterReset.Email(driver).sendKeys(email);
+        validLoginAfterReset.password(driver).sendKeys(password);
+        validLoginAfterReset.loginbutton(driver).click();
         Thread.sleep(3000);
     }
     @Test(priority = 6)
     public void searchProducts() throws InterruptedException {
-        driver.findElement(By.cssSelector("a[href=\"/\"]")).click();
+        searchProducts.linkElement(driver).click();
         Thread.sleep(1500);
-        driver.findElement(By.className("search-box-text")).sendKeys("Cam");
+        searchProducts.search(driver).sendKeys("Cam");
         Thread.sleep(1500);
-        driver.findElement(By.id("ui-id-2")).click();
+        searchProducts.selectsearch(driver).click();
         WebElement Element= driver.findElement(By.className("product-name"));
         JavascriptExecutor js =(JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView();", Element);

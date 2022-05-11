@@ -4,8 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ca3cd319-36c0-4093-bfe5-b16dcc8d521c" name="Changes" comment="c">
-      <change afterPath="$PROJECT_DIR$/Regression.xml" afterDir="false" />
+    <list default="true" id="ca3cd319-36c0-4093-bfe5-b16dcc8d521c" name="Changes" comment="regression">
+      <change afterPath="$PROJECT_DIR$/smoke.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Registeration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ResetPassword.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ValidLogin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ValidLoginAfterReset.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/logout.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/searchProducts.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/main.class" afterDir="false" />
@@ -45,7 +51,7 @@
       <recent name="D:\software projects\E-commerce_JAVASelenium\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.D:/software projects/E-commerce_JAVASelenium/Regression.xml">
+  <component name="RunManager" selected="TestNG.D:/software projects/E-commerce_JAVASelenium/smoke.xml">
     <configuration name="E-commerce_JAVASelenium" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -91,11 +97,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="main (1)" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="D:/software projects/E-commerce_JAVASelenium/smoke.xml" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="E-commerce_JAVASelenium" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="main" />
-      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/smoke.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
       <properties />
       <listeners />
       <method v="2">
@@ -126,18 +131,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="main.addtoCompareList" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="E-commerce_JAVASelenium" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="main" />
-      <option name="METHOD_NAME" value="addtoCompareList" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="main.createsuccessfulOrder" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="E-commerce_JAVASelenium" />
       <option name="PACKAGE_NAME" value="" />
@@ -150,21 +143,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="main.validRegisteration" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="E-commerce_JAVASelenium" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="main" />
+      <option name="METHOD_NAME" value="validRegisteration" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Maven.E-commerce_JAVASelenium" />
       <item itemvalue="TestNG.main" />
-      <item itemvalue="TestNG.main.addtoCompareList" />
-      <item itemvalue="TestNG.main (1)" />
       <item itemvalue="TestNG.main.createsuccessfulOrder" />
       <item itemvalue="TestNG.D:/software projects/E-commerce_JAVASelenium/Regression.xml" />
+      <item itemvalue="TestNG.main.validRegisteration" />
+      <item itemvalue="TestNG.D:/software projects/E-commerce_JAVASelenium/smoke.xml" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.D:/software projects/E-commerce_JAVASelenium/smoke.xml" />
+        <item itemvalue="TestNG.main.validRegisteration" />
         <item itemvalue="TestNG.D:/software projects/E-commerce_JAVASelenium/Regression.xml" />
         <item itemvalue="TestNG.main" />
         <item itemvalue="TestNG.main.createsuccessfulOrder" />
-        <item itemvalue="TestNG.main (1)" />
-        <item itemvalue="TestNG.main.addtoCompareList" />
       </list>
     </recent_temporary>
   </component>
@@ -191,7 +196,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652145044221</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="regression">
+      <created>1652221955321</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1652221955321</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -208,6 +220,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first" />
     <MESSAGE value="c" />
-    <option name="LAST_COMMIT_MESSAGE" value="c" />
+    <MESSAGE value="regression" />
+    <option name="LAST_COMMIT_MESSAGE" value="regression" />
   </component>
 </project>
